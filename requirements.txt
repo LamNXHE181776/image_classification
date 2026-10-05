@@ -1,0 +1,14 @@
+lightning
+torch
+torchvision
+opencv-python-headless
+albumentations
+tensorboard
+boto3
+botocore
+python-dotenv
+mlflow
+PyYAML
+pytz
+ultralytics
+onnx2pytorch
