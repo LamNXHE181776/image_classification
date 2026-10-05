@@ -1,5 +1,7 @@
 # AICycle Image Classification
 
+# NOTE: ĐÂY LÀ BẢN FORK CÓ VÀI THAY ĐỔI NHỎ
+
 > Framework huấn luyện Image Classification production-ready, xây dựng trên PyTorch Lightning,
 > thiết kế theo hướng mở rộng và tích hợp MLOps — lấy cảm hứng từ kiến trúc của [Ultralytics](https://github.com/ultralytics/ultralytics).
 
