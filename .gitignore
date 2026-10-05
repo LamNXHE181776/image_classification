@@ -1,13 +1,31 @@
+# Python Cache & Environment (Recommended)
+__pycache__/
+*.py[cod]
+.env
+.venv/
+
+# Jupyter Notebooks
 *.ipynb
-/output
-/plots
-/datasets
-/predicted_results
-/scripts
-/color recognition
-model_conversion.py
+
+# Datasets & Data Files
 *.csv
+datasets/
+/datasets
+
+# Model Weights & Artifacts (Crucial to prevent giant Git repos)
 *.ckpt
 *.onnx
+
+# Outputs, Plots, and Results
+output/
+plots/
+predicted_results/
+
+# Directories with spaces
+color\ recognition/
+
+# ⚠️ Python Scripts & Utilities (Remove from this list if you want them on GitHub)
+scripts/
+model_conversion.py
 export.py
 train.py
