@@ -1,4 +1,4 @@
-.ipynb
+*.ipynb
 /output
 /plots
 /datasets
@@ -6,7 +6,8 @@
 /scripts
 /color recognition
 model_conversion.py
-.csv
-.ckpt
-.onnx
+*.csv
+*.ckpt
+*.onnx
 export.py
+train.py
