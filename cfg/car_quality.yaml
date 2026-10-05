@@ -1,0 +1,32 @@
+# Car Quality Classification — task-specific overrides
+# Only keys that differ from cfg/default.yaml need to be listed here.
+# All other settings are inherited from the defaults.
+
+data_dir: ""                    # Fill in: /path/to/car_quality_dataset
+resize: 512
+batch_size: 16
+num_workers: 16
+apply_aug: true
+pad_color: 255
+
+model_name: efficientnet_v2_s
+num_classes: 0                  # 0 = tự động đếm từ data_dir/train/
+
+optimizer: SGD
+learning_rate: 0.005
+learning_rate_fraction: 0.1
+loss_fn: CrossEntropyLoss
+
+accelerator: gpu
+devices: 1
+strategy: auto
+precision: "bf16-mixed"
+min_epochs: 50
+max_epochs: 100
+patience: 15
+
+save_output_dir: ./output
+project: "CarQuality.Classification"
+
+enable_mlflow: true
+mlflow_tracking_uri: "https://mlflow.aicycle.ai"

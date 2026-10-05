@@ -1,0 +1,41 @@
+# ============================================================
+# AICycle Image Classification — Default Configuration
+# All hyperparameters live here; override per-task in a
+# separate YAML file and pass it to main.py via --cfg.
+# ============================================================
+
+# ── Data ──────────────────────────────────────────────────
+data_dir: ""          # Root dataset dir:  <data_dir>/train/<cls>/, <data_dir>/val/<cls>/
+resize: 256           # Square resize (letterbox); also used as ONNX input shape
+batch_size: 16
+num_workers: 4
+apply_aug: false      # Enable Albumentations augmentation at train time
+pad_color: 255        # Letterbox padding colour (0 = black, 255 = white)
+
+# ── Model ─────────────────────────────────────────────────
+model_name: mobilenet_v3_small   # torchvision model name OR custom @register_model key
+num_classes: 0                   # 0 = tự động đếm từ data_dir/train/ khi train
+
+# ── Optimiser & Loss ──────────────────────────────────────
+optimizer: SGD
+learning_rate: 0.005
+learning_rate_fraction: 0.1     # LR at last epoch = learning_rate * learning_rate_fraction
+loss_fn: CrossEntropyLoss       # Any torch.nn loss class name
+
+# ── Trainer ───────────────────────────────────────────────
+accelerator: gpu
+devices: 1
+strategy: auto
+precision: "32"                 # "32" | "16-mixed" | "bf16-mixed"
+min_epochs: 10
+max_epochs: 50
+patience: 15                    # EarlyStopping patience (epochs)
+
+# ── Paths ─────────────────────────────────────────────────
+ckpt_path: ""                   # Resume / fine-tune from this checkpoint
+save_output_dir: ./output
+project: classification         # Sub-folder under save_output_dir/<date>/<project>/
+
+# ── Logging ───────────────────────────────────────────────
+enable_mlflow: false
+mlflow_tracking_uri: "http://localhost:5000"
